@@ -5,22 +5,15 @@ public class Main {
     public static void main(String[] args) {
         Parser parser = new Parser();
 
-        Method method;
-        int lineNumber;
-        String inputValue;
+        CommandData commandData = parser.getCommandData(args);
 
-        // Read
-        if (args.length == 2) {
-            method = parser.getMethod(args[0]);
-            lineNumber = parser.getLineNumber(args[1]);
+        switch (commandData.method()) {
+            case R -> {
+
+            }
+            case W -> {
+
+            }
         }
-
-        // Write
-        if (args.length == 3) {
-            method = parser.getMethod(args[0]);
-            lineNumber = parser.getLineNumber(args[1]);
-            inputValue = parser.getValue(args[2]);
-        }
-
     }
 }
