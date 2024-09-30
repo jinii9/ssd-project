@@ -14,7 +14,7 @@ public class Main {
             case R -> {
                 //
                 String readValue = reader.readFromFile(commandData.lineNumber());
-                // writer.writeResult("result.txt", readValue);
+                writer.writeResult("result.txt", readValue);
             }
             case W -> {
                 writer.writeSpecificLine("nand.txt", commandData.lineNumber(),
