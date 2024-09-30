@@ -11,7 +11,7 @@ public class Reader {
 
         try (BufferedReader br = new BufferedReader(new FileReader("nand.txt"))) {
             String line; // 파일에서 읽어들인 한 줄의 내용을 저장하는 변수
-            int currentLine = 1; // 현재 파일에서 읽고 있는 줄 번호
+            int currentLine = 0; // 현재 파일에서 읽고 있는 줄 번호
             while ((line = br.readLine()) != null) { // 파일의 끝에 도달하면 br.readLine()이 null을 반환하며, 루프가 종료
                 if (currentLine == lineNumber) {
                     result = line;
