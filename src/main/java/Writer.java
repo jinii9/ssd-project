@@ -5,16 +5,9 @@ import java.util.List;
 public class Writer {
 
     public void writeSpecificLine(String fileName, int nandIndex, String inputValue) {
-        List<String> lines = new ArrayList<>();
+        Reader reader = new Reader();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                lines.add(line);
-            }
-        } catch (IOException e) {
-            System.out.println("파일 읽기 중 오류가 발생했습니다: " + e.getMessage());
-        }
+        List<String> lines = reader.readFromFile2(fileName);
 
         lines.set(nandIndex, inputValue); // 특정 줄 내용 변경
 
