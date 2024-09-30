@@ -8,6 +8,14 @@ public class Parser {
         }
     }
 
+    public int getLineNumber(String inputLineNumber) {
+        int lineNumber = Integer.parseInt(inputLineNumber);
+
+        validateLineNumberRange(lineNumber);
+
+        return lineNumber;
+    }
+
     public String getValue(String inputValue) {
         validateStartsWith0x(inputValue);   // 0x로 시작하는지 검증
         validateLength(inputValue);         // 길이가 10자리인지 검증
@@ -15,6 +23,13 @@ public class Parser {
 
         return inputValue; // 모든 검증을 통과하면 원본 값 반환
     }
+
+    private void validateLineNumberRange(int lineNumber) {
+        if (lineNumber < 0 || lineNumber > 99) {
+            throw new IllegalArgumentException("lineNumber 값은 0~99 사이의 값이어야 합니다.");
+        }
+    }
+
 
     // 1. 입력값이 0x로 시작하는지 확인
     private void validateStartsWith0x(String inputValue) {
