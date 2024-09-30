@@ -3,6 +3,16 @@ import java.util.List;
 
 public class Writer {
 
+    public void writeResult(String fileName, String inputValue) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(inputValue);
+            writer.newLine();  // 줄바꿈 추가
+            System.out.println("파일이 성공적으로 출력되었습니다.");
+        } catch (IOException e) {
+            System.out.println("파일 쓰기 중 오류가 발생했습니다: " + e.getMessage());
+        }
+    }
+
     public void writeSpecificLine(String fileName, int nandIndex, String inputValue) {
         Reader reader = new Reader();
 
